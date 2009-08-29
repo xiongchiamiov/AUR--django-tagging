@@ -1,17 +1,18 @@
 # Contributor: Ryan Coyner <rcoyner@gmail.com>
+# Maintainer: James Pearson <james.m.pearson+arch@gmail.com>
 pkgname=django-tagging
-pkgver=0.2.1
-pkgrel=2
+pkgver=0.3
+pkgrel=1
 pkgdesc="A generic tagging application for Django projects"
-arch=('i686')
+arch=('i686' 'x86_64')
 url="http://code.google.com/p/django-tagging/"
 license=('MIT')
 depends=('python')
-source=(http://django-tagging.googlecode.com/files/tagging-$pkgver.zip)
-md5sums=('478817d8e3f8d062b54b8d9cdaaa00cd')
+source=(http://django-tagging.googlecode.com/files/django-tagging-$pkgver.tar.gz)
+md5sums=('0f2c48868ac71d0ad7a16654167d50eb')
 
 build() { 
-    cd $srcdir/tagging-$pkgver
+    cd $srcdir/django-tagging-$pkgver
     python setup.py build || return 1
     python setup.py install --root=$pkgdir || return 1
     install -D -m644 LICENSE.txt $pkgdir/usr/share/licenses/$pkgname/LICENSE
